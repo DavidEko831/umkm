@@ -19,7 +19,7 @@
   </head>
   <body>
     <header class="flex flex-col md:mt-3 md:flex-row lg:justify-center">
-      <a href="./beranda.html" class="my-2 ml-4 sm:my-2 md:my-0 lg:ml-12">
+      <a href="/beranda" class="my-2 ml-4 sm:my-2 md:my-0 lg:ml-12">
         <svg
           width="59"
           height="71"

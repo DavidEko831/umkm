@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 class Admin extends Authenticatable
 {
     use Notifiable;
-
+    public $timestamps = false;
     protected $fillable = [
         'email',
         'password',
@@ -16,5 +16,5 @@ class Admin extends Authenticatable
 
     protected $hidden = [
         'password',
-    ];
+];
 }
