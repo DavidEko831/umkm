@@ -104,229 +104,42 @@
           <div
             class="grid grid-cols-2 gap-x-14 mx-auto md:grid-cols-3 md:gap-x-20"
           >
+          @foreach ($produks as $produk )
+            
             <!--Card-->
             <div class="flex flex-col mt-14">
               <h4 class="text-[10px] font-bold text-center md:text-[25px]">
-                RW 3
+                {{ $produk->namaToko }}
               </h4>
               <img
-                src="/gambar/esteh.jpg"
+                src="{{ asset('storage/' . $produk->foto) }}"
                 alt=""
                 class="w-[100px] h-[100px] md:w-[309px] md:h-[300px]"
               />
-              <p class="text-[10px] md:text-[20px]">Paperbag PSD</p>
-              <p class="text-[13px] md:text-[25px]">Rp.7000</p>
-              <p class="text-[10px] md:text-[15px]">Jl.Aja Dulu</p>
+              <p class="text-[10px] md:text-[20px]">{{ $produk->namaProduk }}</p>
+              <p class="text-[13px] md:text-[25px]">{{ $produk->harga }}</p>
+              <p class="text-[10px] md:text-[15px]">{{ $produk->alamat }}</p>
               <a
                 href="wa.me/6285850731934"
                 class="flex flex-row text-[10px] md:text-[15px]"
-                >085850731934<img
+                >{{ $produk->telp }}<img
                   src="/gambar/wa.svg"
                   alt=""
                   class="float-right w-[18px] h-[18px] md:w-[24px] md:h-[24px]"
               /></a>
+              <!--<a href="" class="bg-[#FDC300] text-white text-[13px] md:text-[25px] rounded-md text-center font-bold">Detail Produk</a>-->
             </div>
 
-            <div class="flex flex-col mt-14">
-              <h4 class="text-[10px] font-bold text-center md:text-[25px]">
-                RW 3
-              </h4>
-              <img
-                src="/gambar/cao.jpg"
-                alt=""
-                class="w-[100px] h-[100px] md:w-[309px] md:h-[300px]"
-              />
-              <p class="text-[10px] md:text-[20px]">Paperbag PSD</p>
-              <p class="text-[13px] md:text-[25px]">Rp.7000</p>
-              <p class="text-[10px] md:text-[15px]">Jl.Aja Dulu</p>
-              <a
-                href="wa.me/6285850731934"
-                class="flex flex-row text-[10px] md:text-[15px]"
-                >085850731934<img
-                  src="/gambar/wa.svg"
-                  alt=""
-                  class="float-right w-[18px] h-[18px] md:w-[24px] md:h-[24px]"
-              /></a>
-            </div>
+          
 
-            <div class="flex flex-col mt-14">
-              <h4 class="text-[10px] font-bold text-center md:text-[25px]">
-                RW 3
-              </h4>
-              <img
-                src="/gambar/esteh.jpg"
-                alt=""
-                class="w-[100px] h-[100px] md:w-[309px] md:h-[300px]"
-              />
-              <p class="text-[10px] md:text-[20px]">Paperbag PSD</p>
-              <p class="text-[13px] md:text-[25px]">Rp.7000</p>
-              <p class="text-[10px] md:text-[15px]">Jl.Aja Dulu</p>
-              <a
-                href="wa.me/6285850731934"
-                class="flex flex-row text-[10px] md:text-[15px]"
-                >085850731934<img
-                  src="/gambar/wa.svg"
-                  alt=""
-                  class="float-right w-[18px] h-[18px] md:w-[24px] md:h-[24px]"
-              /></a>
-            </div>
-
-            <div class="flex flex-col mt-14">
-              <h4 class="text-[10px] font-bold text-center md:text-[25px]">
-                RW 3
-              </h4>
-              <img
-                src="/gambar/cao.jpg"
-                alt=""
-                class="w-[100px] h-[100px] md:w-[309px] md:h-[300px]"
-              />
-              <p class="text-[10px] md:text-[20px]">Paperbag PSD</p>
-              <p class="text-[13px] md:text-[25px]">Rp.7000</p>
-              <p class="text-[10px] md:text-[15px]">Jl.Aja Dulu</p>
-              <a
-                href="wa.me/6285850731934"
-                class="flex flex-row text-[10px] md:text-[15px]"
-                >085850731934<img
-                  src="/gambar/wa.svg"
-                  alt=""
-                  class="float-right w-[18px] h-[18px] md:w-[24px] md:h-[24px]"
-              /></a>
-            </div>
-
-            <div class="flex flex-col mt-14">
-              <h4 class="text-[10px] font-bold text-center md:text-[25px]">
-                RW 3
-              </h4>
-              <img
-                src="/gambar/esteh.jpg"
-                alt=""
-                class="w-[100px] h-[100px] md:w-[309px] md:h-[300px]"
-              />
-              <p class="text-[10px] md:text-[20px]">Paperbag PSD</p>
-              <p class="text-[13px] md:text-[25px]">Rp.7000</p>
-              <p class="text-[10px] md:text-[15px]">Jl.Aja Dulu</p>
-              <a
-                href="wa.me/6285850731934"
-                class="flex flex-row text-[10px] md:text-[15px]"
-                >085850731934<img
-                  src="/gambar/wa.svg"
-                  alt=""
-                  class="float-right w-[18px] h-[18px] md:w-[24px] md:h-[24px]"
-              /></a>
-            </div>
-
-            <div class="flex flex-col mt-14">
-              <h4 class="text-[10px] font-bold text-center md:text-[25px]">
-                RW 3
-              </h4>
-              <img
-                src="/gambar/cao.jpg"
-                alt=""
-                class="w-[100px] h-[100px] md:w-[309px] md:h-[300px]"
-              />
-              <p class="text-[10px] md:text-[20px]">Paperbag PSD</p>
-              <p class="text-[13px] md:text-[25px]">Rp.7000</p>
-              <p class="text-[10px] md:text-[15px]">Jl.Aja Dulu</p>
-              <a
-                href="wa.me/6285850731934"
-                class="flex flex-row text-[10px] md:text-[15px]"
-                >085850731934<img
-                  src="/gambar/wa.svg"
-                  alt=""
-                  class="float-right w-[18px] h-[18px] md:w-[24px] md:h-[24px]"
-              /></a>
-            </div>
-
-            <div class="flex flex-col mt-14">
-              <h4 class="text-[10px] font-bold text-center md:text-[25px]">
-                RW 3
-              </h4>
-              <img
-                src="/gambar/esteh.jpg"
-                alt=""
-                class="w-[100px] h-[100px] md:w-[309px] md:h-[300px]"
-              />
-              <p class="text-[10px] md:text-[20px]">Paperbag PSD</p>
-              <p class="text-[13px] md:text-[25px]">Rp.7000</p>
-              <p class="text-[10px] md:text-[15px]">Jl.Aja Dulu</p>
-              <a
-                href="wa.me/6285850731934"
-                class="flex flex-row text-[10px] md:text-[15px]"
-                >085850731934<img
-                  src="/gambar/wa.svg"
-                  alt=""
-                  class="float-right w-[18px] h-[18px] md:w-[24px] md:h-[24px]"
-              /></a>
-            </div>
-
-            <div class="flex flex-col mt-14">
-              <h4 class="text-[10px] font-bold text-center md:text-[25px]">
-                RW 3
-              </h4>
-              <img
-                src="/gambar/cao.jpg"
-                alt=""
-                class="w-[100px] h-[100px] md:w-[309px] md:h-[300px]"
-              />
-              <p class="text-[10px] md:text-[20px]">Paperbag PSD</p>
-              <p class="text-[13px] md:text-[25px]">Rp.7000</p>
-              <p class="text-[10px] md:text-[15px]">Jl.Aja Dulu</p>
-              <a
-                href="wa.me/6285850731934"
-                class="flex flex-row text-[10px] md:text-[15px]"
-                >085850731934<img
-                  src="/gambar/wa.svg"
-                  alt=""
-                  class="float-right w-[18px] h-[18px] md:w-[24px] md:h-[24px]"
-              /></a>
-            </div>
-
-            <div class="flex flex-col mt-14">
-              <h4 class="text-[10px] font-bold text-center md:text-[25px]">
-                RW 3
-              </h4>
-              <img
-                src="/gambar/esteh.jpg"
-                alt=""
-                class="w-[100px] h-[100px] md:w-[309px] md:h-[300px]"
-              />
-              <p class="text-[10px] md:text-[20px]">Paperbag PSD</p>
-              <p class="text-[13px] md:text-[25px]">Rp.7000</p>
-              <p class="text-[10px] md:text-[15px]">Jl.Aja Dulu</p>
-              <a
-                href="wa.me/6285850731934"
-                class="flex flex-row text-[10px] md:text-[15px]"
-                >085850731934<img
-                  src="/gambar/wa.svg"
-                  alt=""
-                  class="float-right w-[18px] h-[18px] md:w-[24px] md:h-[24px]"
-              /></a>
-            </div>
-
-            <div class="flex flex-col mt-14">
-              <h4 class="text-[10px] font-bold text-center md:text-[25px]">
-                RW 3
-              </h4>
-              <img
-                src="/gambar/cao.jpg"
-                alt=""
-                class="w-[100px] h-[100px] md:w-[309px] md:h-[300px]"
-              />
-              <p class="text-[10px] md:text-[20px]">Paperbag PSD</p>
-              <p class="text-[13px] md:text-[25px]">Rp.7000</p>
-              <p class="text-[10px] md:text-[15px]">Jl.Aja Dulu</p>
-              <a
-                href="wa.me/6285850731934"
-                class="flex flex-row text-[10px] md:text-[15px]"
-                >085850731934<img
-                  src="/gambar/wa.svg"
-                  alt=""
-                  class="float-right w-[18px] h-[18px] md:w-[24px] md:h-[24px]"
-              /></a>
-            </div>
+            @endforeach
           </div>
         </div>
       </section>
+
+      <div class="mt-6 flex items-center justify-center">
+        {{ $produks->links() }} <!-- Laravel pagination links -->
+    </div>
     </main>
 
     <section class="relative">

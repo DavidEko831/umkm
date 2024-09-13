@@ -52,8 +52,9 @@
         Formulir UMKM
       </h1>
       <!--form-->
-      <form action="{{ route('umkm.store') }}" method="POST" enctype="multipart/form-data" class="mt-10 md:mt-14 flex flex-col gap-y-2 md:h-auto md:w-10/12 mx-auto">
-        @csrf
+      <form action="{{ route('umkm.update', $umkms->id_umkm) }}" method="POST" enctype="multipart/form-data"class="mt-10 md:mt-14 flex flex-col gap-y-2 md:h-auto md:w-10/12 mx-auto">
+                @csrf
+                @method('PUT')
          <!-- Include this line for CSRF protection in Laravel -->
         <label for="namaToko" class="text-[#0E435B] text-[15px] md:text-[32px] font-bold">Nama Toko:</label>
         <input type="text" name="namaToko" class="w-full h-[54px] md:h-[61px] border-2 outline-none border-[#A08D8D] placeholder:pl-3 md:text-[32px] focus:placeholder:text-transparent md:placeholder:text-[32px] rounded-[12px]" placeholder="Masukkan nama toko" />
