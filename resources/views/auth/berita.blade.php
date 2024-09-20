@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MAKANAN</title>
+    <title>BERITA DETAIL</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet" />
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -16,73 +16,48 @@
 </head>
 
 <body>
-    <nav class="flex flex-col gap-y-8 bg-[#3BAFAB] md:gap-y-14">
-        <div class="relative flex items-center justify-center">
-            <a href="/beranda" class="pt-2 absolute left-0 ml-4">
-                <svg width="59" height="71" viewBox="0 0 59 71" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="w-[18px] h-[20px] mt-3 md:w-[70px] md:h-[57px]">
-                    <path
-                        d="M57.2162 3.51066L58.9062 66.6637C58.9211 67.3032 58.7462 67.935 58.4001 68.4913C58.0541 69.0476 57.55 69.5072 56.9423 69.8207C56.3346 70.1342 55.6461 70.2897 54.9511 70.2704C54.256 70.2511 53.5807 70.0579 52.9978 69.7114L2.55844 39.4621C0.467161 38.2084 0.382846 35.0578 2.40399 33.6906L51.1533 0.786855C51.7156 0.406048 52.3798 0.173781 53.0739 0.115289C53.7681 0.0567973 54.4655 0.174318 55.0904 0.455082C55.7154 0.735846 56.2439 1.16912 56.6187 1.70782C56.9935 2.24652 57.2001 2.87005 57.2162 3.51066Z"
-                        fill="#FDC300" />
-                </svg>
-            </a>
-            <img src="/gambar/desa semambung.png" alt=""
-                class="w-[66px] h-[59px] pt-2 md:w-[105px] md:h-[99px]" />
-        </div>
-
-        <div class="flex flex-row justify-center gap-x-10 text-white mb-2 md:text-[25px] md:gap-x-32">
-            <a href="/makanan" class="underline decoration-[#FDC300] decoration-4">Makanan</a>
-            <a href="/minuman">Minuman</a>
-            <a href="/konveksi">Konveksi</a>
-        </div>
-    </nav>
+    <header class="h-[70px] md:h-[147px] flex flex-col md:justify-center">
+        <a href="./beranda.html" class="pt-2">
+            <svg width="59" height="71" viewBox="0 0 59 71" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="w-[26px] h-[21px] md:w-[70px] md:h-[57px]">
+                <path
+                    d="M57.2162 3.51066L58.9062 66.6637C58.9211 67.3032 58.7462 67.935 58.4001 68.4913C58.0541 69.0476 57.55 69.5072 56.9423 69.8207C56.3346 70.1342 55.6461 70.2897 54.9511 70.2704C54.256 70.2511 53.5807 70.0579 52.9978 69.7114L2.55844 39.4621C0.467161 38.2084 0.382846 35.0578 2.40399 33.6906L51.1533 0.786855C51.7156 0.406048 52.3798 0.173781 53.0739 0.115289C53.7681 0.0567973 54.4655 0.174318 55.0904 0.455082C55.7154 0.735846 56.2439 1.16912 56.6187 1.70782C56.9935 2.24652 57.2001 2.87005 57.2162 3.51066Z"
+                    fill="#FDC300" />
+            </svg>
+        </a>
+        <h1
+            class="text-[#016997] font-bold text-[20px] md:text-[50px] pt-0.5 md:pt-4 mx-4 md:mx-0 mb-4 md:mb-6 text-center">
+            {{ $item->title }}
+        </h1>
+    </header>
 
     <main>
-        <!--search bar-->
+        <!--Semambung adalah sebuah desa-->
 
-        <form class="mx-auto mt-4 w-[308px] h-[24px] md:w-[676px] md:h-[45px] md:ml-8 md:mt-8">
-            <div class="relative">
-                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
-                </div>
-                <input type="search" id="default-search"
-                    class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 outline-none md:placeholder:text-[19px]"
-                    placeholder="Cari produk disini..." name="search" required />
+        <!--Letak desa-->
+        <section class="flex flex-col md:flex-row items-start mt-4 md:mt-6 px-4 md:px-10">
+            <!-- Gambar -->
+            <div
+                class="w-[230px] h-[207px] md:w-[432px] md:h-[432px] flex justify-center items-center bg-[#76C6F8] mx-auto">
+                <img src="{{ asset('storage/' . $item->image) }}" alt="Deskripsi Gambar"
+                    class="max-w-full max-h-full md:w-[317px] md:h-[321px] p-3 object-contain" />
             </div>
-        </form>
 
-        <section class="relative">
-            <div class="flex flex-col">
-                <div class="grid grid-cols-2 gap-x-14 mx-auto md:grid-cols-3 md:gap-x-20">
-                    @foreach ($produks as $produk)
-                        <!--Card-->
-                        <div class="flex flex-col mt-14">
-                            <h4 class="text-[10px] font-bold text-center md:text-[25px]">
-                                {{ $produk->namaToko }}
-                            </h4>
-                            <img src="{{ asset('storage/' . $produk->foto) }}" alt=""
-                                class="w-[100px] h-[100px] md:w-[309px] md:h-[300px]" />
-                            <p class="text-[10px] md:text-[20px]">{{ $produk->namaProduk }}</p>
-                            <p class="text-[13px] md:text-[25px]">{{ $produk->harga }}</p>
-                            <p class="text-[10px] md:text-[15px]">{{ $produk->alamat }}</p>
-                            <a href="wa.me/6285850731934"
-                                class="flex flex-row text-[10px] md:text-[15px]">{{ $produk->telp }}<img
-                                    src="/gambar/wa.svg" alt=""
-                                    class="float-right w-[18px] h-[18px] md:w-[24px] md:h-[24px]" /></a>
-                            <!--<a href="" class="bg-[#FDC300] text-white text-[13px] md:text-[25px] rounded-md text-center font-bold">Detail Produk</a>-->
-                        </div>
-                    @endforeach
-                </div>
+            <!-- Teks -->
+            <div class="flex-1 px-4">
+                <p class="text-[12px] md:text-[25px] pr-1 md:pr-3 indent-1">
+                    {{ $item->description }}
+                </p>
             </div>
         </section>
 
-        <div class="mt-6 flex items-center justify-center">
-            {{ $produks->withQueryString()->links() }}
-        </div>
+        <section class="mt-6 md:mt-10">
+            <div class="flex items-center justify-center">
+                <p
+                    class="text-[12px] md:text-[25px] text-center text-[#C26861] mx-auto break-words max-w-[90%] indent-2 md:indent-10">
+                </p>
+            </div>
+        </section>
     </main>
 
     <section class="relative">
@@ -130,10 +105,10 @@
 
             <div class="flex flex-col gap-y-5 text-center text-white h-full px-4">
                 <h3 class="text-[10px] mt-5 font-bold md:text-[25px]">Produk Kami</h3>
-                <a href="/makanan" class="text-[10px] md:text-[24px]">Makanan</a>
-                <a href="/minuman" class="text-[10px] md:text-[24px]">Minuman</a>
-                <a href="/konveksi" class="text-[10px] md:text-[24px]">Konveksi</a>
-                <a href="/tentangKami" class="text-[10px] self-center md:text-[25px] font-bold flex"><img
+                <a href="./makanan.html" class="text-[10px] md:text-[24px]">Makanan</a>
+                <a href="./minuman.html" class="text-[10px] md:text-[24px]">Minuman</a>
+                <a href="./konveksi.html" class="text-[10px] md:text-[24px]">Konveksi</a>
+                <a href="./tentangKami.html" class="text-[10px] self-center md:text-[25px] font-bold flex"><img
                         src="" alt="" class="w-[11px] h-[10px] md:h-[25px] md:w-[25px]" />
                     <span>TENTANG KAMI</span>
                 </a>

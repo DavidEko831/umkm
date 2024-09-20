@@ -28,55 +28,39 @@
     </div>
     <div class="flex flex-col rounded-xl bg-[#FFFFFF] mt-2 w-full md:w-8/12 md:mt-6 md:mx-auto">
         <h1 class="text-[30px] md:text-[32px] text-[#0E435B] text-center mt-2 md:mt-4 font-bold">
-            Formulir UMKM
+            Formulir Berita
         </h1>
         <!--form-->
-        <form action="{{ route('umkm.update', $umkms->id_umkm) }}" method="POST"
-            enctype="multipart/form-data"class="mt-10 md:mt-14 flex flex-col gap-y-2 md:h-auto md:w-10/12 mx-auto">
+        <form action="{{ route('news.update', $item->id) }}" method="POST" enctype="multipart/form-data"
+            class="mt-10 md:mt-14 flex flex-col gap-y-2 md:h-auto md:w-10/12 mx-auto">
             @csrf
             @method('PUT')
             <!-- Include this line for CSRF protection in Laravel -->
-            <label for="namaToko" class="text-[#0E435B] text-[15px] md:text-[32px] font-bold">Nama Toko:</label>
-            <input type="text" name="namaToko"
+            <label for="title" class="text-[#0E435B] text-[15px] md:text-[32px] font-bold">Judul Berita:</label>
+            <input type="text" name="title"
                 class="w-full h-[54px] md:h-[61px] border-2 outline-none border-[#A08D8D] placeholder:pl-3 md:text-[32px] focus:placeholder:text-transparent md:placeholder:text-[32px] rounded-[12px]"
-                placeholder="Masukkan nama toko" />
+                placeholder="Masukkan Judul Berita" value="{{ $item->title }}" />
 
-            <label for="alamat" class="text-[#0E435B] text-[15px] md:text-[32px] font-bold">Alamat:</label>
-            <input type="text" name="alamat"
-                class="w-full h-[54px] md:h-[61px] border-2 outline-none border-[#A08D8D] placeholder:pl-3 md:text-[32px] focus:placeholder:text-transparent md:placeholder:text-[32px] rounded-[12px]"
-                placeholder="Masukkan alamat toko" />
+            <label for="image" class="text-[#0E435B] text-[15px] md:text-[32px] font-bold">Foto Berita:</label>
+            <div>
+                <!-- Input untuk file, tidak memerlukan atribut value -->
+                <input type="file" name="image" id="image"
+                    class="w-full h-[54px] md:h-[61px] border-2 outline-none border-[#A08D8D] placeholder:pl-3 md:text-[32px] focus:placeholder:text-transparent md:placeholder:text-[32px] rounded-[12px]"
+                    accept="image/*" />
 
-            <label for="telp" class="text-[#0E435B] text-[15px] md:text-[32px] font-bold">No Telp:</label>
-            <input type="text" name="telp"
-                class="w-full h-[54px] md:h-[61px] border-2 outline-none border-[#A08D8D] placeholder:pl-3 md:text-[32px] focus:placeholder:text-transparent md:placeholder:text-[32px] rounded-[12px]"
-                placeholder="Masukkan nomor telpon" />
+                <!-- Jika ada gambar yang sudah diupload sebelumnya, tampilkan di sini -->
+                @if ($item && $item->image)
+                    <div class="mt-4">
+                        <img src="{{ asset('storage/' . $item->image) }}" alt="Image Preview"
+                            class="w-full h-auto rounded-[12px]">
+                    </div>
+                @endif
+            </div>
 
-            <label for="namaProduk" class="text-[#0E435B] text-[15px] md:text-[32px] font-bold">Nama Produk:</label>
-            <input type="text" name="namaProduk"
-                class="w-full h-[54px] md:h-[61px] border-2 outline-none border-[#A08D8D] placeholder:pl-3 md:text-[32px] focus:placeholder:text-transparent md:placeholder:text-[32px] rounded-[12px]"
-                placeholder="Masukkan nama produk" />
-
-            <label for="harga" class="text-[#0E435B] text-[15px] md:text-[32px] font-bold">Harga:</label>
-            <input type="text" name="harga"
-                class="w-full h-[54px] md:h-[61px] border-2 outline-none border-[#A08D8D] placeholder:pl-3 md:text-[32px] focus:placeholder:text-transparent md:placeholder:text-[32px] rounded-[12px]"
-                placeholder="Masukkan harga produk" />
-
-            <label for="kategori_produk" class="text-[#0E435B] text-[15px] md:text-[32px] font-bold">Kategori:</label>
-            <select name="kategori" id="kategori_produk"
-                class="w-full h-[54px] md:h-[61px] border-2 outline-none border-[#A08D8D] placeholder:pl-3 md:text-[32px] focus:placeholder:text-transparent md:placeholder:text-[32px] rounded-[12px]">
-                <option value="">Pilih Kategori</option>
-                <option value="makanan">makanan</option>
-                <option value="minuman">minuman</option>
-                <option value="konveksi">konveksi</option>
-            </select>
-
-            <label for="foto" class="text-[#0E435B] text-[15px] md:text-[32px] font-bold">Foto Produk :</label>
-            <input type="file" name="foto" id="foto"
-                class="w-full h-[54px] md:h-[61px] border-2 outline-none border-[#A08D8D] placeholder:pl-3 md:text-[32px] focus:placeholder:text-transparent md:placeholder:text-[32px] rounded-[12px]" />
-
-            <label for="deskripsi" class="text-[#0E435B] text-[15px] md:text-[32px] font-bold">Deskripsi Produk:</label>
-            <textarea name="deskripsi" id="deskripsi" placeholder="Masukkan deskripsi produk"
-                class="w-full h-[64px] md:h-[120px] border-2 outline-none border-[#A08D8D] placeholder:pl-3 md:text-[32px] focus:placeholder:text-transparent md:placeholder:text-[32px] rounded-[12px]"></textarea>
+            <label for="description" class="text-[#0E435B] text-[15px] md:text-[32px] font-bold">Deskripsi
+                Berita:</label>
+            <textarea name="description" id="description" placeholder="Masukkan Deskripsi Berita"
+                class="w-full h-[64px] md:h-[120px] border-2 outline-none border-[#A08D8D] placeholder:pl-3 md:text-[32px] focus:placeholder:text-transparent md:placeholder:text-[32px] rounded-[12px]">{{ old('description', $item->description ?? '') }}</textarea>
 
             <button type="submit"
                 class="mt-6 mb-2 md:mt-14 md:mb-6 place-self-end bg-[#FDC300] w-[90px] h-[40px] md:w-[246px] md:h-[53px] text-white rounded-xl xl:text-[28px]">Kirim</button>

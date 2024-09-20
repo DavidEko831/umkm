@@ -2,57 +2,119 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Umkm;
+use Illuminate\Http\Request;
+
 class KategoriController extends Controller
 {
     //
 
-    public function makananadmin()
+    public function makananadmin(Request $request)
     {
-        // Mendapatkan produk yang kategorinya 'makanan'
-        $produks = Umkm::where('kategori', 'makanan')->paginate(10);
+        // Ambil input pencarian
+        $keyword = $request->input('search');
 
-        return view('auth.makananadmin', ['produks' => $produks]);
+        $products = Umkm::where('kategori', 'makanan')
+            ->when($keyword, function ($query) use ($keyword) {
+                // Filter berdasarkan namaToko atau namaProduk hanya jika ada keyword
+                $query->where(function ($query) use ($keyword) {
+                    $query->where('namaToko', 'LIKE', '%' . $keyword . '%')
+                        ->orWhere('namaProduk', 'LIKE', '%' . $keyword . '%');
+                });
+            })
+            ->paginate(10); // Paginate untuk hasil pencarian
+
+        return view('auth.makananadmin', ['produks' => $products]);
     }
 
-    public function makanan()
+    public function makanan(Request $request)
     {
-        // Mendapatkan produk yang kategorinya 'makanan'
-        $produks = Umkm::where('kategori', 'makanan')->paginate(10);
+        // Ambil input pencarian
+        $keyword = $request->input('search');
 
-        return view('makanan', ['produks' => $produks]);
+        $products = Umkm::where('kategori', 'makanan')
+            ->when($keyword, function ($query) use ($keyword) {
+                // Filter berdasarkan namaToko atau namaProduk hanya jika ada keyword
+                $query->where(function ($query) use ($keyword) {
+                    $query->where('namaToko', 'LIKE', '%' . $keyword . '%')
+                        ->orWhere('namaProduk', 'LIKE', '%' . $keyword . '%');
+                });
+            })
+            ->paginate(10); // Paginate untuk hasil pencarian
+
+        return view('makanan', ['produks' => $products]);
     }
 
-    public function minuman()
+    public function minuman(Request $request)
     {
-        // Mendapatkan produk yang kategorinya 'makanan'
-        $produks = Umkm::where('kategori', 'minuman')->paginate(10);
+        // Ambil input pencarian
+        $keyword = $request->input('search');
 
-        return view('minuman', ['produks' => $produks]);
+        $products = Umkm::where('kategori', 'minuman')
+            ->when($keyword, function ($query) use ($keyword) {
+                // Filter berdasarkan namaToko atau namaProduk hanya jika ada keyword
+                $query->where(function ($query) use ($keyword) {
+                    $query->where('namaToko', 'LIKE', '%' . $keyword . '%')
+                        ->orWhere('namaProduk', 'LIKE', '%' . $keyword . '%');
+                });
+            })
+            ->paginate(10); // Paginate untuk hasil pencarian
+
+        // Mengembalikan view dengan produk yang sudah difilter
+        return view('minuman', ['produks' => $products]);
     }
 
-    public function minumanadmin()
+    public function minumanadmin(Request $request)
     {
-        // Mendapatkan produk yang kategorinya 'makanan'
-        $produks = Umkm::where('kategori', 'minuman')->paginate(10);
+        // Ambil input pencarian
+        $keyword = $request->input('search');
 
-        return view('auth.minumanadmin', ['produks' => $produks]);
+        $products = Umkm::where('kategori', 'minuman')
+            ->when($keyword, function ($query) use ($keyword) {
+                // Filter berdasarkan namaToko atau namaProduk hanya jika ada keyword
+                $query->where(function ($query) use ($keyword) {
+                    $query->where('namaToko', 'LIKE', '%' . $keyword . '%')
+                        ->orWhere('namaProduk', 'LIKE', '%' . $keyword . '%');
+                });
+            })
+            ->paginate(10); // Paginate untuk hasil pencarian
+
+        return view('auth.minumanadmin', ['produks' => $products]);
     }
 
-    public function konveksi()
+    public function konveksi(Request $request)
     {
-        // Mendapatkan produk yang kategorinya 'makanan'
-        $produks = Umkm::where('kategori', 'konveksi')->paginate(10);
+        // Ambil input pencarian
+        $keyword = $request->input('search');
 
-        return view('konveksi', ['produks' => $produks]);
+        $products = Umkm::where('kategori', 'konveksi')
+            ->when($keyword, function ($query) use ($keyword) {
+                // Filter berdasarkan namaToko atau namaProduk hanya jika ada keyword
+                $query->where(function ($query) use ($keyword) {
+                    $query->where('namaToko', 'LIKE', '%' . $keyword . '%')
+                        ->orWhere('namaProduk', 'LIKE', '%' . $keyword . '%');
+                });
+            })
+            ->paginate(10); // Paginate untuk hasil pencarian
+
+        return view('konveksi', ['produks' => $products]);
     }
 
-    public function konveksiadmin()
+    public function konveksiadmin(Request $request)
     {
-        // Mendapatkan produk yang kategorinya 'makanan'
-        $produks = Umkm::where('kategori', 'konveksi')->paginate(10);
+        // Ambil input pencarian
+        $keyword = $request->input('search');
 
-        return view('auth.konveksiadmin', ['produks' => $produks]);
+        $products = Umkm::where('kategori', 'konveksi')
+            ->when($keyword, function ($query) use ($keyword) {
+                // Filter berdasarkan namaToko atau namaProduk hanya jika ada keyword
+                $query->where(function ($query) use ($keyword) {
+                    $query->where('namaToko', 'LIKE', '%' . $keyword . '%')
+                        ->orWhere('namaProduk', 'LIKE', '%' . $keyword . '%');
+                });
+            })
+            ->paginate(10); // Paginate untuk hasil pencarian
+
+        return view('auth.konveksiadmin', ['produks' => $products]);
     }
 }
